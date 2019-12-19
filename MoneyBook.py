@@ -1,9 +1,11 @@
-#讀取檔案
+# 讀取檔案
+moneybook = []
 with open('moneybook.csv', 'r') as f:
     for line in f:
+        if '商品,價格' in line:
+            continue
         name, price = line.strip().split(',')
-        print(name, price )
-moneybook = []
+        moneybook.append([name, price] )
 while True:
     name = input('請輸入商品名稱：')
     if name == 'Q':
