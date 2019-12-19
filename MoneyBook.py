@@ -6,6 +6,7 @@ with open('moneybook.csv', 'r') as f:
             continue
         name, price = line.strip().split(',')
         moneybook.append([name, price])
+# 新增資料
 while True:
     name = input('請輸入商品名稱：')
     if name == 'Q':
