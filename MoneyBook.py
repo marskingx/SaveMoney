@@ -1,3 +1,9 @@
+# 檢查檔案是否存在
+import os # 載入作業系統
+if os.path.isfile('moneybook.csv'):
+    print('YA!有檔案')
+else:
+    print('靠!竟然沒檔案')
 # 讀取檔案
 moneybook = []
 with open('moneybook.csv', 'r') as f:
@@ -23,3 +29,4 @@ with open('moneybook.csv', 'w') as f:
     f.write('商品,價格\n')
     for p in moneybook:
         f.write(p[0] + ',' + str(p[1]) + '\n')
+
