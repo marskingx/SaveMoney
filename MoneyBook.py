@@ -1,9 +1,10 @@
 # 檢查檔案是否存在
 import os  # 載入作業系統
 
+
 def read_file(filename):
     moneybook = []
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         for line in f:
             if '商品,價格' in line:
                 continue  # 繼續
@@ -34,7 +35,7 @@ def print_moneybook(moneybook):
 
 # 寫入檔案
 def write_file(filename, moneybook):
-    with open(filename, 'w') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         f.write('商品,價格\n')
         for p in moneybook:
             f.write(p[0] + ',' + str(p[1]) + '\n')
@@ -43,14 +44,15 @@ def write_file(filename, moneybook):
 
 def main():
     filename = 'moneybook.csv'
-    if os.path.isfile('moneybook.csv'):  # 檢查檔案是否存在
+    if os.path.isfile(filename):  # 檢查檔案是否存在
         print('YA!有檔案')
-        moneybook = read_file('moneybook.csv')
+        moneybook = read_file(filename)
     else:
         print('靠!竟然沒檔案')
 
     moneybook = user_input(moneybook)
     print_moneybook(moneybook)
     write_file('moneybook.csv', moneybook)
+
 
 main()
